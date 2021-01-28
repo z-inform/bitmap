@@ -42,9 +42,11 @@ int draw(uint8_t* ptr, size_t size, size_t width){
 
         for(int i = 1; i <= 8; i++){
             if( (byteCounter * 8 + i - 1) % width == 0 ) printf("\n");
+            if( (byteCounter * 8 + i) > (size * 8 - (size * 8) % width) ) return 0;
             if( ((ptr[byteCounter] & (1 << (8 - i))) >> (8 - i)) == 0 ) printf("\033[107m  \e[0m");
             else printf("\033[45m  \e[0m");
         }
+
 
 
     }
