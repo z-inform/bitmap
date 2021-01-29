@@ -73,10 +73,26 @@ int canvas::setPixel(unsigned int x, unsigned int y){
     
     unsigned int offset = y * (this -> width) + x;
     this -> ptr [(int) offset / 8] |= (1 << (7 - (int) (offset % 8)));
-
-
     
     return 0;
+}
+
+int canvas::unsetPixel(unsigned int x, unsigned int y){
+    
+    unsigned int offset = y * (this -> width) + x;
+    this -> ptr [(int) offset / 8] &= (~(1 << (7 - (int) (offset % 8))));
+    
+    return 0;
+}
+
+int canvas::getPixel(unsigned int x, unsigned int y){
+
+  unsigned int offset = y * (this -> width) + x;
+  
+  return ((this -> ptr [(int) offset / 8] & (1 << (7 - (int) (offset % 8)))) >> (7 - (int) (offset % 8)));
+
+
+
 }
 
 int canvas::save(FILE* desc){

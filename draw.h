@@ -19,7 +19,8 @@ class canvas{
 
     int draw();
     int setPixel(unsigned int x, unsigned int y);
-    int unsetPixel();
+    int unsetPixel(unsigned int x, unsigned int y);
+    int getPixel(unsigned int x, unsigned int y);
     int save(FILE* desc);
 
 
