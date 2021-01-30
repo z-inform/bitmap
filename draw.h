@@ -22,6 +22,8 @@ class canvas{
     int unsetPixel(unsigned int x, unsigned int y);
     int getPixel(unsigned int x, unsigned int y);
     int save(FILE* desc);
+    int togglePixel(unsigned int x, unsigned int y);
+    int setState(unsigned int x, unsigned int y, unsigned int state);
 
 
 

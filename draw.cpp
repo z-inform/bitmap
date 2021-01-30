@@ -106,6 +106,19 @@ int canvas::save(FILE* desc){
     return 0;
 }
 
+int canvas::togglePixel(unsigned int x, unsigned int y){
+    if(getPixel(x, y) == 1) unsetPixel(x, y);
+    else setPixel(x, y);
+
+    return 0;
+}
+
+int canvas::setState(unsigned int x, unsigned int y, unsigned int state){
+    if( (state & 1) == 1 ) setPixel(x, y);
+    else unsetPixel(x, y);
+
+    return 0;
+}
 
 
 
