@@ -5,12 +5,12 @@
 
 #define SQR "\xe2\x96\xa0"
 
-const uint32_t separator = 0xEE77;
 
 class canvas{
     uint8_t* ptr;
     size_t size;
     size_t width;
+    const uint32_t separator = 0xEE77;
     
     public:
     canvas(FILE* desc);
@@ -24,6 +24,8 @@ class canvas{
     int save(FILE* desc);
     int togglePixel(unsigned int x, unsigned int y);
     int setState(unsigned int x, unsigned int y, unsigned int state);
+    int contDisplay();
+    int load(FILE* desc);
 
 
 
