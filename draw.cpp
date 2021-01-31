@@ -183,6 +183,7 @@ int canvas::contDisplay(){
                  if( strcmp(command, "y") == 0 ){
                      FILE* fptr = fopen(name, "wb");
                      save(fptr);
+                     fclose(fptr);
                  }
         }
 
@@ -193,8 +194,9 @@ int canvas::contDisplay(){
                  printf("Filename was read as: %s. Do you want to read from it? (y/n): ", name);
                  scanf("%s", command);
                  if( strcmp(command, "y") == 0 ){
-                     FILE* fptr = fopen(name, "wb");
+                     FILE* fptr = fopen(name, "rb");
                      load(fptr);
+                     fclose(fptr);
                  }
 
         }
